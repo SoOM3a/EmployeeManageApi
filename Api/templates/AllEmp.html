@@ -1,0 +1,29 @@
+<br /><h1 align="center">All Employees data</h1>
+<table class="table" align="center" border="1 px" style="border-style: double;">
+	<tr>
+		<th> ID </th>
+		<th> Name</th>
+		<th> Title</th>
+		<th> Email </th>
+        <th>Edit</th>
+        
+	</tr>
+<tr ng-repeat="i in AllEmpData |startfrom:(CurrentPage-1)*PageSize|limitTo:PageSize" >
+		<th> {{i.ID}} </th>
+		<th> {{i.Name}} </th>
+		<th> {{i.Title}} </th>
+		<th> {{i.Email}} </th>
+        <th ng-click="Getinstance(i)">
+          <a ui-sref="EmpInfo">
+            <img src="Models/EditModel.png"  width="15px" height="15px"></img>
+             </a>
+            </th>
+	</tr>
+    <tr>
+        <th colspan="5">
+    <p align="center">Page: {{CurrentPage}}</p>
+        </th>
+    </tr>
+</table>
+<ul uib-pagination total-items="AllEmpData.length" ng-model="CurrentPage" max-size="10"  boundary-links="true" class="pagination-sm"></ul>
+  
